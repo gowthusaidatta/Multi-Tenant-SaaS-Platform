@@ -54,6 +54,9 @@ export const TenantsAPI = {
   update: (tenantId, payload) => api.put(`/tenants/${tenantId}`, payload),
 };
 
+/**
+ * User management API endpoints
+ */
 export const UsersAPI = {
   add: (tenantId, payload) => api.post(`/tenants/${tenantId}/users`, payload),
   list: (tenantId, params) => api.get(`/tenants/${tenantId}/users`, { params }),
