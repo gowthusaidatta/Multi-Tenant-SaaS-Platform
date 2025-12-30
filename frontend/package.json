@@ -1,6 +1,7 @@
 {
   "name": "mt-saas-frontend",
   "version": "1.0.0",
+  "description": "Multi-tenant SaaS platform frontend application",
   "private": true,
   "type": "module",
   "scripts": {
