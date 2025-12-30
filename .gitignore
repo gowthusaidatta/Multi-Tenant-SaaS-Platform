@@ -1,3 +1,6 @@
+# Git Ignore Configuration
+# Files and directories excluded from version control
+
 # Dependencies
 node_modules/
 dist/
