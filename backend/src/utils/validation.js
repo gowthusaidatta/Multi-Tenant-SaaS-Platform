@@ -160,6 +160,7 @@ export function isValidSubscriptionPlan(plan) {
  * @returns {boolean} True if valid tenant status
  */
 export function isValidTenantStatus(status) {
+  if (!status || typeof status !== 'string') return false;
   return ['active', 'suspended', 'trial'].includes(status);
 }
 
