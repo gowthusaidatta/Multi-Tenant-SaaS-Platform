@@ -34,6 +34,9 @@ api.interceptors.response.use(
   }
 );
 
+/**
+ * Authentication API endpoints
+ */
 export const AuthAPI = {
   registerTenant: (payload) => api.post('/auth/register-tenant', payload),
   login: (payload) => api.post('/auth/login', payload),
