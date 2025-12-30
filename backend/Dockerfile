@@ -1,8 +1,10 @@
 # Multi-Tenant SaaS Platform - Backend Dockerfile
 # Production-ready Node.js API server with PostgreSQL support
+# Uses Alpine Linux for minimal image size
 
 FROM node:20-alpine
 
+# Set working directory
 WORKDIR /app
 
 # Install system dependencies including curl for health checks
