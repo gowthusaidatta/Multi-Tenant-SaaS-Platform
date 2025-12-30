@@ -1,3 +1,7 @@
+/**
+ * Main Application Component
+ * Defines application routes and wraps with authentication provider
+ */
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './auth';
@@ -17,8 +21,11 @@ export default function App() {
   return (
     <AuthProvider>
       <Routes>
+        {/* Public routes */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        
+        {/* Protected routes - require authentication */}
         <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
         <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
         <Route path="/projects/:projectId" element={<ProtectedRoute><ProjectDetails /></ProtectedRoute>} />
@@ -27,6 +34,8 @@ export default function App() {
         <Route path="/users" element={<ProtectedRoute><Users /></ProtectedRoute>} />
         <Route path="/subscription" element={<ProtectedRoute><Subscription /></ProtectedRoute>} />
         <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+        
+        {/* Catch-all route */}
         <Route path="*" element={<Login />} />
       </Routes>
     </AuthProvider>
