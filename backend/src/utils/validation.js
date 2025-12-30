@@ -140,6 +140,7 @@ export function isValidProjectStatus(status) {
  * @returns {boolean} True if valid role
  */
 export function isValidRole(role) {
+  if (!role || typeof role !== 'string') return false;
   return ['super_admin', 'tenant_admin', 'user'].includes(role);
 }
 
