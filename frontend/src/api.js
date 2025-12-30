@@ -65,6 +65,9 @@ export const UsersAPI = {
   remove: (userId) => api.delete(`/users/${userId}`)
 };
 
+/**
+ * Project management API endpoints
+ */
 export const ProjectsAPI = {
   create: (payload) => api.post('/projects', payload),
   list: (params) => api.get('/projects', { params }),
