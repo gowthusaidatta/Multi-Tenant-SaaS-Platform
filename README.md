@@ -55,24 +55,28 @@ The platform is fully dockerized and can be started with a single command for au
 
 
 ## Technology Stack
+
 ### Backend
-- Node.js 20
-- Express.js 4.x
-- PostgreSQL client (`pg`)
-- JWT (`jsonwebtoken`)
-- Password hashing (`bcrypt`)
+- **Node.js** 20 - JavaScript runtime
+- **Express.js** 4.x - Web framework
+- **PostgreSQL** client (`pg`) - Database driver
+- **JWT** (`jsonwebtoken`) - Authentication
+- **bcrypt** - Password hashing
 
 ### Database
-- PostgreSQL 15
+- **PostgreSQL** 15 - Relational database
 
 ### Frontend
-- React 18
-- Vite 5
-- React Router
+- **React** 18 - UI library
+- **Vite** 5 - Build tool and dev server
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
 
 ### DevOps & Tooling
-- Docker
-- Docker Compose v2
+- **Docker** - Containerization
+- **Docker Compose** v2 - Multi-container orchestration
+- **Jest** - Backend testing
+- **Vitest** - Frontend testing
 
 
 
