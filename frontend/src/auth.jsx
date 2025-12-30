@@ -1,7 +1,15 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { AuthAPI } from './api';
 
+/**
+ * Authentication context for managing user state
+ */
 const AuthCtx = createContext(null);
+
+/**
+ * Hook to access authentication context
+ * @returns {Object} Authentication context value
+ */
 export const useAuth = () => useContext(AuthCtx);
 
 export function AuthProvider({ children }) {
