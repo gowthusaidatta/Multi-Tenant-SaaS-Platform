@@ -110,6 +110,7 @@ export function isValidTitle(title) {
  * @returns {boolean} True if valid priority
  */
 export function isValidPriority(priority) {
+  if (!priority || typeof priority !== 'string') return false;
   return ['low', 'medium', 'high'].includes(priority);
 }
 
