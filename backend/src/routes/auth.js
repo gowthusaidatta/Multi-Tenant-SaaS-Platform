@@ -18,9 +18,12 @@ function signToken(payload) {
 router.post('/register-tenant', async (req, res) => {
   const { tenantName, subdomain, adminEmail, adminPassword, adminFullName } = req.body || {};
   
-  // Validation
+  // Input validation
   if (!tenantName || typeof tenantName !== 'string' || tenantName.trim().length === 0) {
     return badRequest(res, 'Tenant name is required and must be a non-empty string');
+  }
+  if (tenantName.trim().length > 255) {
+    return badRequest(res, 'Tenant name must not exceed 255 characters');
   }
   if (!subdomain || !isValidSubdomain(String(subdomain).toLowerCase())) {
     return badRequest(res, 'Invalid subdomain format (3-63 chars, alphanumeric and hyphens)');
