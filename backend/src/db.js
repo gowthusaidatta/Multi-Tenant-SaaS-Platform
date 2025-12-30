@@ -64,10 +64,17 @@ export const getClient = () => pool.connect();
  * Test database connectivity
  * Used during application startup to ensure database is accessible
  * 
+ * @returns {Promise<void>}
  * @throws {Error} If database connection fails
  */
 export const ensureConnection = async () => {
-  await query('SELECT 1');
+  try {
+    await query('SELECT 1');
+    console.log('[Database] Connection established successfully');
+  } catch (error) {
+    console.error('[Database] Connection failed:', error.message);
+    throw error;
+  }
 };
 
 /**
