@@ -42,8 +42,10 @@ async function bootstrap() {
   
   // Start the HTTP server
   app.listen(config.port, () => {
+    console.log('='.repeat(50));
     console.log(`✓ API server listening on port ${config.port}`);
     console.log(`✓ Health check available at http://localhost:${config.port}/api/health`);
+    console.log('='.repeat(50));
   });
 }
 
