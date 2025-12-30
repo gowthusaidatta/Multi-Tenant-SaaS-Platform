@@ -33,8 +33,8 @@ export const config = {
   
   // JWT authentication configuration
   jwt: {
-    secret: process.env.JWT_SECRET || 'change_me_in_prod_please',  // Must be strong in production
-    expiresIn: process.env.JWT_EXPIRES_IN || '24h',  // Token validity period
+    secret: process.env.JWT_SECRET || 'change_me_in_prod_please',  // MUST be strong in production
+    expiresIn: process.env.JWT_EXPIRES_IN || '24h',  // Token validity period (24 hours default)
   },
   
   // CORS configuration
