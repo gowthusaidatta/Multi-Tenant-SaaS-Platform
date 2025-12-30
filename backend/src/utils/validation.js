@@ -9,7 +9,7 @@
  * @returns {boolean} True if valid email format
  */
 export function isValidEmail(email) {
-  if (!email) return false;
+  if (!email || typeof email !== 'string') return false;
   // RFC 5322 compliant basic email validation
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(String(email).toLowerCase());
