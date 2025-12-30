@@ -6,12 +6,19 @@ import { query, db } from '../db.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/**
+ * Run database migrations in order
+ * Tracks applied migrations to prevent duplicate execution
+ * @returns {Promise<void>}
+ */
 export async function runMigrations() {
   const migrationsDir = path.resolve(__dirname, '../../migrations');
   const files = fs.readdirSync(migrationsDir).filter(f => f.endsWith('.sql')).sort();
 
+  // Initialize migrations tracking table
   await query(fs.readFileSync(path.join(migrationsDir, '000_init_migrations_table.sql')).toString());
 
+  // Get list of already applied migrations
   const appliedRes = await query('SELECT filename FROM schema_migrations');
   const applied = new Set(appliedRes.rows.map(r => r.filename));
 
