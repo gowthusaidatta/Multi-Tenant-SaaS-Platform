@@ -27,6 +27,8 @@ export const config = {
     database: process.env.DB_NAME || 'saas_db',
     user: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASSWORD || '1235',
+    // Connection pool defaults
+    maxConnections: parseInt(process.env.DB_MAX_CONNECTIONS || '20', 10),
   },
   
   // JWT authentication configuration
