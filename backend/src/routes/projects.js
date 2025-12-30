@@ -12,7 +12,14 @@ const router = Router();
 router.post('/projects', authMiddleware, async (req, res) => {
   const me = req.user; // tenantId, userId, role
   const { name, description, status = 'active', tenantId: bodyTenantId } = req.body || {};
-  if (!name) return badRequest(res, 'Name required');
+  
+  // Validate inputs
+  if (!name || !isValidTitle(name)) {
+    return badRequest(res, 'Valid project name required (1-255 characters)');
+  }
+  if (status && !isValidProjectStatus(status)) {
+    return badRequest(res, 'Invalid project status');
+  }
 
   // Determine target tenant
   let targetTenantId = me.tenantId;
