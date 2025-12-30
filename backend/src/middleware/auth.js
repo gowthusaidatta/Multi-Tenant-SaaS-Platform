@@ -26,7 +26,9 @@ export function authMiddleware(req, res, next) {
   const [scheme, token] = header.split(' ');
   
   // Verify Bearer scheme and token presence
-  if (scheme !== 'Bearer' || !token) return unauthorized(res, 'Token missing');
+  if (scheme !== 'Bearer' || !token) {
+    return unauthorized(res, 'Token missing');
+  }
   
   try {
     // Verify and decode JWT token
@@ -35,7 +37,7 @@ export function authMiddleware(req, res, next) {
     // Attach user info to request for downstream middleware/routes
     req.user = payload; // { userId, tenantId, role }
     next();
-  } catch {
+  } catch (error) {
     return unauthorized(res, 'Token invalid or expired');
   }
 }
