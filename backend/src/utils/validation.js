@@ -57,6 +57,7 @@ export function validatePasswordDetailed(password) {
 /**
  * Validates subdomain format
  * Requirements: 3-63 chars, lowercase alphanumeric and hyphens, not starting/ending with hyphen
+ * Reserved subdomains are not allowed (www, api, admin, etc.)
  * @param {string} subdomain - Subdomain to validate
  * @returns {boolean} True if valid subdomain format
  */
@@ -64,6 +65,11 @@ export function isValidSubdomain(subdomain) {
   if (!subdomain || typeof subdomain !== 'string') return false;
   const lower = subdomain.toLowerCase();
   if (lower.length < 3 || lower.length > 63) return false;
+  
+  // Reserved subdomain check
+  const reserved = ['www', 'api', 'admin', 'app', 'mail', 'ftp', 'localhost'];
+  if (reserved.includes(lower)) return false;
+  
   const re = /^[a-z0-9]([a-z0-9-]*[a-z0-9])?$/;
   // Also reject if original subdomain has uppercase (strict lowercase validation)
   if (subdomain !== lower) return false;
