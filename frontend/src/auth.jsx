@@ -12,10 +12,15 @@ const AuthCtx = createContext(null);
  */
 export const useAuth = () => useContext(AuthCtx);
 
+/**
+ * Authentication provider component
+ * Manages authentication state and provides login/logout functionality
+ */
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Refresh user information from server
   const refresh = async () => {
     try {
       const { data } = await AuthAPI.me();
