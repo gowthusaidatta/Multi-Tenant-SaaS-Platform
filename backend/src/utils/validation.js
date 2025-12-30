@@ -130,6 +130,7 @@ export function isValidTaskStatus(status) {
  * @returns {boolean} True if valid project status
  */
 export function isValidProjectStatus(status) {
+  if (!status || typeof status !== 'string') return false;
   return ['active', 'archived', 'completed'].includes(status);
 }
 
