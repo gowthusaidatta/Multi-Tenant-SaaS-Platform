@@ -47,9 +47,10 @@ export const config = {
  * Subscription plan limits
  * Defines maximum users and projects for each plan tier
  * These limits are enforced at the API level before resource creation
+ * Adjust these values based on your business requirements
  */
 export const PLAN_LIMITS = {
-  free: { max_users: 5, max_projects: 3 },          // Free tier: Small teams
-  pro: { max_users: 25, max_projects: 15 },         // Pro tier: Growing teams
-  enterprise: { max_users: 100, max_projects: 50 }, // Enterprise tier: Large organizations
+  free: { max_users: 5, max_projects: 3 },          // Free tier: Small teams, limited resources
+  pro: { max_users: 25, max_projects: 15 },         // Pro tier: Growing teams, moderate limits
+  enterprise: { max_users: 100, max_projects: 50 }, // Enterprise tier: Large organizations, high limits
 };
