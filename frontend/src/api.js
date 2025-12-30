@@ -44,6 +44,9 @@ export const AuthAPI = {
   logout: () => api.post('/auth/logout')
 };
 
+/**
+ * Tenant management API endpoints
+ */
 export const TenantsAPI = {
   get: (tenantId) => api.get(`/tenants/${tenantId}`),
   list: (params) => api.get('/tenants', { params }),
