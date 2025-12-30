@@ -44,14 +44,16 @@ The platform is fully dockerized and can be started with a single command for au
 
 
 ## Multi-Tenancy Model
-- **Architecture**: Shared database, shared schema
+
+- **Architecture**: Shared database, shared schema approach
 - **Isolation Strategy**:
-  - All tenant-scoped records include a `tenant_id`
+  - All tenant-scoped records include a `tenant_id` column
   - `tenant_id` is derived exclusively from JWT claims (never from client input)
   - All queries are filtered by `tenant_id` at the API layer
 - **Super Admin Handling**:
   - Super admins have `tenant_id = NULL`
   - Super admins can access all tenants without isolation filters
+  - Super admin actions are logged in the audit trail
 
 
 ## Technology Stack
