@@ -27,18 +27,19 @@ The platform is fully dockerized and can be started with a single command for au
 - [License](#license)
 
 ## Key Features
-- Multi-tenancy with strict `tenant_id`-based data isolation
-- Subdomain-based tenant identification during login
-- JWT-based authentication (24-hour expiry)
-- Role-Based Access Control (super_admin, tenant_admin, user)
-- Subscription plans with enforced limits (free, pro, enterprise)
-- Project and task management with assignment and status tracking
-- Audit logging for critical system actions
-- Health check endpoint: `/api/health`
+
+- **Multi-tenancy** with strict `tenant_id`-based data isolation
+- **Subdomain-based** tenant identification during login
+- **JWT-based authentication** (24-hour expiry)
+- **Role-Based Access Control** (super_admin, tenant_admin, user)
+- **Subscription plans** with enforced limits (free, pro, enterprise)
+- **Project and task management** with assignment and status tracking
+- **Audit logging** for critical system actions
+- **Health check endpoint**: `/api/health`
 - **Comprehensive automated testing** (unit & integration tests)
 - **CI/CD pipeline** with GitHub Actions
-- Fully dockerized architecture (database, backend, frontend)
-- One-command startup using Docker Compose
+- **Fully dockerized** architecture (database, backend, frontend)
+- **One-command startup** using Docker Compose
 
 
 
