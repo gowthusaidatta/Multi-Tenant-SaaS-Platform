@@ -21,10 +21,10 @@ const pool = new pg.Pool({
   user: config.db.user,
   password: config.db.password,
   // Pool configuration for optimal performance
-  max: 20,                    // Maximum number of clients in the pool
-  min: 2,                     // Minimum number of clients to keep alive
-  idleTimeoutMillis: 30000,   // Close idle clients after 30 seconds
-  connectionTimeoutMillis: 2000, // Return error after 2 seconds if cannot connect
+  max: config.db.maxConnections || 20,  // Maximum number of clients in the pool
+  min: 2,                               // Minimum number of clients to keep alive
+  idleTimeoutMillis: 30000,             // Close idle clients after 30 seconds
+  connectionTimeoutMillis: 2000,        // Return error after 2 seconds if cannot connect
 });
 
 /**
