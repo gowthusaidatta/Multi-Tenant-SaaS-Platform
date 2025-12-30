@@ -29,6 +29,9 @@ export const created = (res, arg1, arg2) => {
 	return res.status(201).json({ success: true, message, data });
 };
 
+/**
+ * Error response helpers for different HTTP status codes
+ */
 export const error = (res, message = 'Bad request') => res.status(400).json({ success: false, message });
 export const unauthorized = (res, message = 'Unauthorized') => res.status(401).json({ success: false, message });
 export const forbidden = (res, message = 'Forbidden') => res.status(403).json({ success: false, message });
