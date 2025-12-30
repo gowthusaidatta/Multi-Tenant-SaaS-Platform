@@ -76,6 +76,9 @@ export const ProjectsAPI = {
   remove: (projectId) => api.delete(`/projects/${projectId}`)
 };
 
+/**
+ * Task management API endpoints
+ */
 export const TasksAPI = {
   list: (projectId, params) => api.get(`/projects/${projectId}/tasks`, { params }),
   listAll: (params) => api.get('/tasks/all', { params }), // super_admin: list all tasks across all tenants
