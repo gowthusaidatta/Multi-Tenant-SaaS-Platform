@@ -54,13 +54,19 @@ export function authMiddleware(req, res, next) {
  */
 export function requireRole(...roles) {
   return (req, res, next) => {
-    if (!req.user) return unauthorized(res, 'Unauthorized');
+    if (!req.user) {
+      return unauthorized(res, 'Unauthorized');
+    }
 
     // Super admins can access any route
-    if (req.user.role === 'super_admin') return next();
+    if (req.user.role === 'super_admin') {
+      return next();
+    }
 
     // Check if user's role is in the allowed roles list
-    if (!roles.includes(req.user.role)) return forbidden(res, 'Insufficient permissions');
+    if (!roles.includes(req.user.role)) {
+      return forbidden(res, 'Insufficient permissions');
+    }
 
     next();
   };
