@@ -4,6 +4,7 @@ import { ok, created, forbidden, notFound, badRequest } from '../utils/responses
 import { query } from '../db.js';
 import { v4 as uuidv4 } from 'uuid';
 import { logAction } from '../utils/logger.js';
+import { isValidTitle, isValidProjectStatus } from '../utils/validation.js';
 
 const router = Router();
 
