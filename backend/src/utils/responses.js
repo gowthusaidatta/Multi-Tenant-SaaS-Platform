@@ -1,4 +1,15 @@
-// Test-friendly helpers
+/**
+ * HTTP Response Helpers
+ * Provides consistent response formatting across all API endpoints
+ */
+
+/**
+ * Send successful response (200 OK)
+ * @param {Object} res - Express response object
+ * @param {*} data - Response data
+ * @param {string} [message] - Optional success message
+ * @returns {Object} Express response
+ */
 export const success = (res, data, message) => {
 	const body = { success: true, data };
 	if (message) body.message = message;
