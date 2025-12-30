@@ -3,12 +3,19 @@ import bcrypt from 'bcryptjs';
 import { query } from '../db.js';
 import { PLAN_LIMITS } from '../config.js';
 
+/**
+ * Seed initial data for development and testing
+ * Creates super admin and demo tenant with sample data
+ * Idempotent - safe to run multiple times
+ * @returns {Promise<void>}
+ */
 export async function runSeeds() {
   // Check if already seeded
   await query("INSERT INTO app_status(key, value) VALUES('seed_status', 'pending') ON CONFLICT (key) DO NOTHING");
   const res = await query("SELECT value FROM app_status WHERE key='seed_status'");
   if (res.rows[0]?.value === 'done') {
-    return; // already seeded
+    console.log('[Seed] Already seeded, skipping');
+    return;
   }
 
   // Super Admin
