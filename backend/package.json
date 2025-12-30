@@ -1,6 +1,7 @@
 {
   "name": "mt-saas-backend",
   "version": "1.0.0",
+  "description": "Multi-tenant SaaS platform backend API",
   "type": "module",
   "main": "src/index.js",
   "scripts": {
