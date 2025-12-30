@@ -22,9 +22,11 @@ import { runSeeds } from './utils/seedRunner.js';
  * Runs migrations and seeds before starting the server
  */
 async function bootstrap() {
+  console.log('='.repeat(50));
   console.log('Starting Multi-Tenant SaaS Platform backend...');
   console.log(`Environment: ${config.env}`);
   console.log(`Port: ${config.port}`);
+  console.log('='.repeat(50));
   
   // Ensure database connection
   await ensureConnection();
