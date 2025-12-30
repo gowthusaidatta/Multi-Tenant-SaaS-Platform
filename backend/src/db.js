@@ -20,8 +20,9 @@ const pool = new pg.Pool({
   database: config.db.database,
   user: config.db.user,
   password: config.db.password,
-  // Default pool settings (can be customized via environment variables)
+  // Pool configuration for optimal performance
   max: 20,                    // Maximum number of clients in the pool
+  min: 2,                     // Minimum number of clients to keep alive
   idleTimeoutMillis: 30000,   // Close idle clients after 30 seconds
   connectionTimeoutMillis: 2000, // Return error after 2 seconds if cannot connect
 });
