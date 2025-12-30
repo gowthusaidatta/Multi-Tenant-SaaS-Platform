@@ -19,17 +19,18 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+// Handle authentication errors globally
 api.interceptors.response.use(
-  (r) => r,
-  (err) => {
-    if (err.response && err.response.status === 401) {
+  (response) => response,
+  (error) => {
+    if (error.response && error.response.status === 401) {
       localStorage.removeItem('token');
       // Only redirect if not already on login page to prevent infinite loops
       if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
         window.location.href = '/login';
       }
     }
-    return Promise.reject(err);
+    return Promise.reject(error);
   }
 );
 
