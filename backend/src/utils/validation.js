@@ -150,6 +150,7 @@ export function isValidRole(role) {
  * @returns {boolean} True if valid plan
  */
 export function isValidSubscriptionPlan(plan) {
+  if (!plan || typeof plan !== 'string') return false;
   return ['free', 'pro', 'enterprise'].includes(plan);
 }
 
