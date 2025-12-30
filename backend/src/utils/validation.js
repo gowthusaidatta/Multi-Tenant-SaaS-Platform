@@ -120,6 +120,7 @@ export function isValidPriority(priority) {
  * @returns {boolean} True if valid task status
  */
 export function isValidTaskStatus(status) {
+  if (!status || typeof status !== 'string') return false;
   return ['todo', 'in_progress', 'completed'].includes(status);
 }
 
