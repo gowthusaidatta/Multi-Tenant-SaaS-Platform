@@ -3,7 +3,10 @@ import axios from 'axios';
 // Vite exposes env via import.meta.env; avoid process.env in client code
 const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
-console.log('API Base URL:', baseURL);
+// Log API URL for debugging (only in development)
+if (import.meta.env.DEV) {
+  console.log('[API] Base URL:', baseURL);
+}
 
 export const api = axios.create({ baseURL });
 
