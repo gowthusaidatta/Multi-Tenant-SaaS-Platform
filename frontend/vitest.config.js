@@ -1,5 +1,6 @@
 /**
  * Vitest Configuration for Frontend Testing
+ * Configures test environment, coverage, and React testing utilities
  */
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
@@ -7,11 +8,15 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  
+  // Module resolution
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+  
+  // Test configuration
   test: {
     globals: true,
     environment: 'jsdom',
