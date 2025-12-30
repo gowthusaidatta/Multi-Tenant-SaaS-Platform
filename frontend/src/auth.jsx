@@ -34,14 +34,17 @@ export function AuthProvider({ children }) {
     }
   };
 
+  // Refresh on mount
   useEffect(() => { refresh(); }, []);
 
+  // Login handler
   const login = async (payload) => {
     const { data } = await AuthAPI.login(payload);
     localStorage.setItem('token', data.data.token);
     await refresh();
   };
 
+  // Logout handler
   const logout = async () => {
     try { await AuthAPI.logout(); } catch {}
     localStorage.removeItem('token');
