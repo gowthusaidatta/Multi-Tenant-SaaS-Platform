@@ -10,7 +10,14 @@ import taskRoutes from './routes/tasks.js';
 import healthRoutes from './routes/health.js';
 
 const app = express();
-app.use(cors({ origin: process.env.NODE_ENV === 'production' ? config.corsOrigin : '*', credentials: true }));
+
+// Configure CORS
+app.use(cors({ 
+  origin: process.env.NODE_ENV === 'production' ? config.corsOrigin : '*', 
+  credentials: true 
+}));
+
+// Parse JSON request bodies
 app.use(express.json());
 
 app.use('/api/health', healthRoutes);
