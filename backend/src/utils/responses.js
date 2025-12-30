@@ -16,6 +16,13 @@ export const success = (res, data, message) => {
 	return res.status(200).json(body);
 };
 
+/**
+ * Send created response (201 Created)
+ * @param {Object} res - Express response object
+ * @param {*} arg1 - Message string or data object
+ * @param {*} arg2 - Data object if arg1 is message
+ * @returns {Object} Express response
+ */
 export const created = (res, arg1, arg2) => {
 	const message = typeof arg1 === 'string' && arg2 !== undefined ? arg1 : arg2;
 	const data = typeof arg1 === 'string' && arg2 !== undefined ? arg2 : arg1;
