@@ -1,6 +1,7 @@
 # Multi-Tenant SaaS Platform - Docker Compose Configuration
 # This file defines three services: database, backend, and frontend
 # All services can be started with: docker-compose up -d
+# For development: docker-compose up --build
 
 services:
   # PostgreSQL Database Service
