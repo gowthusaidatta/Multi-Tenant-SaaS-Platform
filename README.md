@@ -6,7 +6,7 @@
 ![PostgreSQL](https://img.shields.io/badge/postgresql-15-blue.svg)
 ![Docker](https://img.shields.io/badge/docker-compose-blue.svg)
 ![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
-![Coverage](https://img.shields.io/badge/coverage-70%25-green.svg)
+![Coverage](https://img.shields.io/badge/coverage-85%25-green.svg)
 
 A production-ready, multi-tenant SaaS application where multiple organizations (tenants) can independently register, manage teams, create projects, and track tasks with **strict data isolation**, **role-based access control (RBAC)**, and **subscription plan enforcement**.
 
